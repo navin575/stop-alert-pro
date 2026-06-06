@@ -1,0 +1,24 @@
+{
+  "name": "Stop-Alert",
+  "short_name": "Stop-Alert",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "./",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "icons": [
+  {
+    "src": "https://cdn-icons-png.flaticon.com/512/552/552408.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any"
+  },
+  {
+    "src": "https://cdn-icons-png.flaticon.com/512/552/552408.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "maskable"
+  }
+]
+}
