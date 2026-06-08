@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Stop-Alert Pro | GPS Travel Alarm</title>
-<meta name="google-site-verification" content="oaU5OrBFA9cd2Arx40kDVsCaboY75fKWwmnR9frQPq4" />    
+    <title>Stop-Alert Pro | GPS Travel Alarm | Location Wake Up App</title>
+    <meta name="keywords" content="gps travel alarm, location alarm, transit alarm, wake up alarm bus, never miss my stop, android track alert app, geo alarm, stop alert pro" />
+    <meta name="description" content="Stop-Alert Pro is a free location-based GPS travel alarm app for bus and train commuters. Set your destination radius and get a reliable transit wake-up alert so you never miss your stop." />
+    <meta name="google-site-verification" content="oaU5OrBFA9cd2Arx40kDVsCaboY75fKWwmnR9frQPq4" />    
     <meta name="description" content="Stop-Alert Pro is a free...">
     <meta name="description" content="Stop-Alert Pro is a free, native GPS travel alarm app that wakes you up with aggressive alarms and vibrations right before you reach your transit stop.">
     <meta name="keywords" content="GPS travel alarm, transit alarm, wake up bus alarm, train sleep alert, location alarm app, free travel alarm">
@@ -22,7 +24,13 @@
         [data-theme="dark"] { --bg: #0f172a; --text: #f8fafc; --panel: #1e293b; --border: #334155; --primary: #818cf8; }
 
         body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow: hidden; }
-        #map { height: 100vh; width: 100%; z-index: 1; }
+        #map { 
+    height: 100vh; 
+    min-height: 100%; /* 👈 Added fallback structure */
+    width: 100%; 
+    z-index: 1; 
+    background-color: #e5e3df; /* 👈 Gives a background shade while tiles load */
+}
 
         .theme-toggle { position: absolute; top: 20px; right: 20px; z-index: 1001; background: var(--panel); border: 1px solid var(--border); padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 20px; }
 
@@ -92,7 +100,10 @@
             <button id="stopBtn" class="btn btn-danger">Cancel Alarm</button>
             <a href="https://github.com/navin575/stop-alert-pro/releases/download/v1.0.1/Stop-Alert.Pro.Native.APK.apk" class="btn btn-apk">
     📥 Download Native Android APK
-</a>
+    </a>
+    <div class="security-note" style="margin-top: 10px; font-size: 0.85rem; color: #666; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.4;">
+        <p>⚠️ <strong>Note on Installation:</strong> Android may display a <em>"File might be harmful"</em> or <em>"Unknown Source"</em> warning. This is completely standard for direct APK downloads outside the Google Play Store. This app is 100% open-source, secure, and contains no tracking scripts.</p>
+    </div>
         </div>
     </div>
 
