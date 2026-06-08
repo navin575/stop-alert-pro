@@ -34,13 +34,24 @@
 
         .theme-toggle { position: absolute; top: 20px; right: 20px; z-index: 1001; background: var(--panel); border: 1px solid var(--border); padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 20px; }
 
-        .ui-overlay { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 420px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+        .ui-overlay { 
+            position: absolute; 
+            bottom: 15px; /* 👈 Moved closer to the bottom edge */
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 94%; 
+            max-width: 400px; 
+            z-index: 1000; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+        }
         .glass-panel { 
             background: var(--panel); 
             border: 1px solid var(--border); 
-            border-radius: 28px; 
-            padding: 18px 22px; /* 👈 Compressed vertical inner spacing */
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); 
+            border-radius: 24px; 
+            padding: 15px 20px; /* 👈 Significantly reduced to save screen space */
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25); 
             text-align: center; 
             backdrop-filter: blur(10px); 
         }
