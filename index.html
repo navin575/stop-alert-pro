@@ -35,7 +35,15 @@
         .theme-toggle { position: absolute; top: 20px; right: 20px; z-index: 1001; background: var(--panel); border: 1px solid var(--border); padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 20px; }
 
         .ui-overlay { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 420px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
-        .glass-panel { background: var(--panel); border: 1px solid var(--border); border-radius: 32px; padding: 25px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); text-align: center; backdrop-filter: blur(10px); }
+        .glass-panel { 
+            background: var(--panel); 
+            border: 1px solid var(--border); 
+            border-radius: 28px; 
+            padding: 18px 22px; /* 👈 Compressed vertical inner spacing */
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); 
+            text-align: center; 
+            backdrop-filter: blur(10px); 
+        }
 
         .fav-bar { display: flex; gap: 8px; overflow-x: auto; padding: 5px 0; margin-bottom: 2px; scrollbar-width: none; }
         .fav-bar::-webkit-scrollbar { display: none; }
@@ -52,12 +60,24 @@
 
         #eta-display { font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 15px; min-height: 1.2rem; }
 
-        .btn { width: 100%; padding: 20px; border: none; border-radius: 20px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: transform 0.1s; text-decoration: none; display: block; box-sizing: border-box; }
+        .btn { 
+            width: 100%; 
+            padding: 14px; /* 👈 Reduced from 20px to look much cleaner */
+            border: none; 
+            border-radius: 16px; 
+            font-weight: 800; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            transition: transform 0.1s; 
+            text-decoration: none; 
+            display: block; 
+            box-sizing: border-box; 
+        }
         .btn:active { transform: scale(0.98); }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:disabled { background: #94a3b8; opacity: 0.5; cursor: not-allowed; }
         .btn-danger { background: var(--danger); color: white; display: none; }
-        .btn-apk { background: #10b981; color: white; margin-top: 8px; }
+        .btn-apk { background: #10b981; color: white; margin-top: 6px; }
         
         #alarm-overlay { position: fixed; inset: 0; background: var(--danger); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
 
@@ -177,14 +197,20 @@
         };
 
         // ========== INITIALIZE MAP INTERFACE ==========
+        // ========== INITIALIZE MAP INTERFACE ==========
         map = L.map('map', { zoomControl: false }).setView([20, 0], 5);
-        currentTiles = L.tileLayer(lightTiles).addTo(map);
+        
+        // 🟢 UPDATED WITH CROSSORIGIN ATTRIBUTE TO FIX GREY TILES:
+        currentTiles = L.tileLayer(lightTiles, {
+            crossorigin: true
+        }).addTo(map);
+        
         L.control.zoom({ position: 'topright' }).addTo(map);
 
-        // 🟢 CRITICAL WEB FIX: Request container validation once DOM rendering finishes
+        // Request container validation once DOM rendering finishes
         setTimeout(function () {
             map.invalidateSize();
-        }, 250);
+        }, 300);
 
         loadingControl = L.control({ position: 'bottomright' });
         loadingControl.onAdd = () => {
